@@ -1,0 +1,31 @@
+extends layout
+block content
+  div.form-container
+    form(method='POST')
+      div.form-group
+        label(for='first_name')
+          |
+          strong First Name
+          input.form-control#first-name(type='text', autocomplete=true, placeholder='John',name='first_name' required)
+      div.form-group
+        label(for='last_name')
+          |
+          strong Last Name
+          input.form-control#last-name(type='text', autocomplete=true, placeholder='Doe',name='last_name' required)
+      div.form-group
+        label(for='username')
+          |
+          strong Username
+          input.form-control#username(type='text', autocomplete=true, placeholder='jondoe12',name='username' required)
+      div.form-group
+        label(for='password')
+          |
+          strong Password
+          input.form-control#password(type='text', autocomplete=true,name='password' required)
+      div.form-group
+        label(for='confirm_password')
+          |
+          strong Confirm Password
+          input.form-control#confirm-password(type='text', autocomplete=true ,name='confirm_password' required)
+      button.btn.btn-submit(type='submit') Submit
+

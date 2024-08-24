@@ -1,6 +1,7 @@
 import path from 'path'
 import express from 'express'
 import userRouter from './routes/user'
+import authRouter from './routes/auth'
 
 const app=express()
 
@@ -10,8 +11,10 @@ app.set('view engine','pug')
 
 
 app.set('views',path.join(__dirname,'views'))
+app.use(express.static(path.join(__dirname,'public')))
 
-app.use('/',userRouter)
+app.use('/catalog',userRouter)
+app.use('/auth',authRouter)
 
 
 app.listen(PORT,()=>{
