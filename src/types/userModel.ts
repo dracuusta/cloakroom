@@ -5,5 +5,5 @@ export interface IUser{
   username:String,
   password:String,
   membership_status:Boolean,
-  messages:Types.ObjectId
+  post:Types.ObjectId
 }
