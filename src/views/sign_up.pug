@@ -1,5 +1,6 @@
 extends layout
 block content
+  link(rel='stylesheet', href='../styles/sign-up.css')
   div.form-container
     form(method='POST')
       div.form-group
@@ -21,11 +22,11 @@ block content
         label(for='password')
           |
           strong Password
-          input.form-control#password(type='text', autocomplete=true,name='password' required)
+          input.form-control#password(type='password', autocomplete=true,name='password' required)
       div.form-group
         label(for='confirm_password')
           |
           strong Confirm Password
-          input.form-control#confirm-password(type='text', autocomplete=true ,name='confirm_password' required)
+          input.form-control#confirm-password(type='password', autocomplete=true ,name='confirm_password' required)
       button.btn.btn-submit(type='submit') Submit
 

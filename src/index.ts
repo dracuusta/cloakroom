@@ -1,4 +1,8 @@
 import path from 'path'
+import bcrypt from 'bcryptjs'
+import session from 'express-session'
+import {Strategy as LocalStrategy} from 'passport-local'
+import passport from 'passport'
 import express from 'express'
 import userRouter from './routes/user'
 import authRouter from './routes/auth'
