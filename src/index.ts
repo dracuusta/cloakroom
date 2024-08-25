@@ -1,14 +1,15 @@
 import path from 'path'
 import bcrypt from 'bcryptjs'
+import logger from 'morgan'
 import session from 'express-session'
 import {Strategy as LocalStrategy} from 'passport-local'
 import passport from 'passport'
 import dotenv from 'dotenv'
 import express from 'express'
+import cookieParser from 'cookie-parser'
 import userRouter from './routes/user'
 import authRouter from './routes/auth'
 import mongoose from 'mongoose'
-import {  ProcessEnv } from './types/environment'
 const app=express()
 
 dotenv.config({path:__dirname+'/.env'})
@@ -31,6 +32,10 @@ const main=async ()=>{
 app.set('views',path.join(__dirname,'views'))
 app.use(express.static(path.join(__dirname,'public')))
 
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use('/catalog',userRouter)
 app.use('/auth',authRouter)
 
