@@ -1,9 +1,10 @@
 import {Types} from 'mongoose'
 export interface IUser{
-  first_name:String,
-  last_name:String,
-  username:String,
-  password:String,
+  id:Types.ObjectId,
+  first_name:string,
+  last_name:string,
+  username:string,
+  password:string,
   membership_status:Boolean,
   post:Types.ObjectId
 }
