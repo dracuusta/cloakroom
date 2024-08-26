@@ -12,7 +12,7 @@ export function initPassport(app:Express){
   passport.use(new LocalStrategy(
     async(username,password,done)=>{
       try{
-        const user=await User.findOne({username:username}).exec();
+        const user:IUser=await User.findOne({username:username}).exec();
         if(!user){
           return done(null,false,{message:'Incorrect username'})
         }

@@ -1,5 +1,4 @@
 import path from 'path'
-import bcrypt from 'bcryptjs'
 import logger from 'morgan'
 import session from 'express-session'
 import passport from 'passport'
@@ -26,6 +25,7 @@ mongoose.set("strictQuery",false)
 const main=async ()=>{
   await mongoose.connect(mongoDBURI)
 }
+main().catch((err)=>console.log(err))
 
 
 app.set('views',path.join(__dirname,'views'))
