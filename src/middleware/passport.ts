@@ -12,7 +12,7 @@ export function initPassport(app:Express){
   passport.use(new LocalStrategy(
     async(username,password,done)=>{
       try{
-        const user:IUser=await User.findOne({username:username}).exec();
+        const user:IUser|null=await User.findOne({username:username})
         if(!user){
           return done(null,false,{message:'Incorrect username'})
         }
@@ -29,6 +29,29 @@ export function initPassport(app:Express){
       }
     }
   ))
+
+
+  passport.serializeUser((user,done)=>{
+    done(null,user)
+  })
+  passport.deserializeUser(async (user:IUser,done)=>{
+    try{
+
+    const userSearched:IUser|null=await User.findById(user.id)
+
+      if(!userSearched)
+    {
+        return done(null,false)
+      }
+      else{
+    done(null,userSearched.id)
+
+      }
+    }
+    catch(error){
+      return done(error)
+    }
+  })
 }
 
 
