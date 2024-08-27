@@ -1,8 +1,8 @@
 import {Router} from 'express'
+import {index} from '../controller/userController'
 
 
 
-import UserController from '../controller/userController'
 
 
 
@@ -11,7 +11,7 @@ import UserController from '../controller/userController'
 
 const router=Router();
 
-router.get('/',UserController.index);
+router.get('/',index);
 
 
 export default router;
