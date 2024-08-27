@@ -4,6 +4,13 @@ import bcrypt from 'bcryptjs'
 import {Express,Request,Response,NextFunction} from "express"
 import {IUser} from '../types/user'
 import User from '../models/user'
+import { Types } from 'mongoose'
+
+declare global{
+  namespace Express{
+    interface User extends IUser{}
+  }
+}
 
 export function initPassport(app:Express){
   app.use(passport.initialize());
@@ -31,20 +38,21 @@ export function initPassport(app:Express){
   ))
 
 
-  passport.serializeUser((user,done)=>{
-    done(null,user)
+  passport.serializeUser((user:Express.User,done)=>{
+    const userWithId=user ;
+    done(null,userWithId.id.toString())
   })
-  passport.deserializeUser(async (user:IUser,done)=>{
+  passport.deserializeUser(async (id:string,done)=>{
     try{
 
-    const userSearched:IUser|null=await User.findById(user.id)
+    const userSearched=await User.findById(new Types.ObjectId(id))
 
       if(!userSearched)
     {
         return done(null,false)
       }
       else{
-    done(null,userSearched.id)
+    done(null,userSearched)
 
       }
     }
@@ -56,6 +64,8 @@ export function initPassport(app:Express){
 
 
 export function isAuthenticated(req:Request,res:Response,next:NextFunction):Response|void{
+  console.log(req)
+  console.log(req.user)
   if(req.user)
     return next()
   else

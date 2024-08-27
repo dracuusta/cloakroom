@@ -1,6 +1,5 @@
 import path from 'path'
 import logger from 'morgan'
-import session from 'express-session'
 import dotenv from 'dotenv'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -8,6 +7,7 @@ import userRouter from './routes/user'
 import authRouter from './routes/auth'
 import mongoose from 'mongoose'
 import { initPassport } from './middleware/passport'
+import session from 'express-session'
 const app=express()
 
 dotenv.config({path:__dirname+'/.env'})
@@ -26,12 +26,11 @@ const main=async ()=>{
   await mongoose.connect(mongoDBURI)
 }
 main().catch((err)=>console.log(err))
-
 app.use(session({
-  secret:"SecretKey",
-  resave:false,
-  saveUninitialized:false,
-}))
+    secret: "This is a secret",
+    resave: false,
+    saveUninitialized: false
+}));
 initPassport(app);
 
 app.set('views',path.join(__dirname,'views'))
