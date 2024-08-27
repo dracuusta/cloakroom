@@ -7,7 +7,7 @@ import User from '../models/user'
 
 export function initPassport(app:Express){
   app.use(passport.initialize());
-  app.use(passport.authenticate('session'));
+  app.use(passport.session());
 
   passport.use(new LocalStrategy(
     async(username,password,done)=>{
