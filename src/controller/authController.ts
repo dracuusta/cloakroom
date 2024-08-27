@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import bcrypt from 'bcryptjs'
 import User from "../models/user"
 import { body,validationResult } from "express-validator";
@@ -44,9 +44,51 @@ export const post_signup = [
     }
     else{
     user.save(); 
-    res.redirect("/catalog/index")
+    res.redirect('/auth/'+user._id.toString()+'/get_membership')
     }
 
   })
 ];
+
+export const get_membership = (_req: Request, res: Response): void => {
+  res.render("membership_form", {
+    title: "Enter Secret Code"
+  });
+};
+
+export const post_get_membership = [
+  body('secret_code').custom((value) => {
+    if (value !== 'abra') {
+      throw new Error('Secret Code does not match');
+    }
+    return true;
+  }),
+  asyncHandler(async (req: Request, res: Response,next:NextFunction) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+       res.render("membership_form", {
+        title:"Membership Form",
+        errors: errors.array()
+      });
+      return;
+    }
+    else{
+      try{
+   await User.findByIdAndUpdate(req.params.id,{$set:{membership_status:true}},{new:true});
+      }catch(error){
+        next(error);
+      }
+    
+    res.redirect('/')
+  
+      }
+    })
+
+];
+
+export const get_login = (_req: Request, res: Response): void => {
+  res.render("login",{
+    title:"Login here"
+  });
+};
 

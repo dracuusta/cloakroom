@@ -2,9 +2,12 @@ doctype html
 html
   head
     title= title
+  link(rel='stylesheet', href='../styles/styles.css')
   body
   div.content-total
-    div(class='container-fluid navebar')
-          block sidebar
+    div(class='topnav navebar')
+      a(class='active' href='/') Home
+      a(href='/auth/login') Login 
+      a(href='/auth/sign-up') Sign Up 
     main.content
       block content

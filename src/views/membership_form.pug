@@ -1,0 +1,10 @@
+extends layout
+block content
+  form(method='POST')
+      div.form-group
+        label(for='membership_status')
+          |
+          strong Secret Passcode
+          input.form-control#secret-passcode(type='text', autocomplete=true, placeholder='alakazam\'s base form',name='secret_code' required)
+      button.btn.btn-submit(type='submit') Submit
+

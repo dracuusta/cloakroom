@@ -1,0 +1,17 @@
+extends layout
+block content
+  link(rel='stylesheet' href='../styles/login.css')
+  div.container
+    div.login-container
+      div.circle.cirle-one
+        div.form-container
+          img(src='https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png' alt='illustration' class='illustration')
+          h1.opacity Login
+          form(method='POST')
+            div.form-group
+              input(type='text' placeholder="Username" name='username' autocomplete=true required)
+            div.form-group
+              input(type='password' name='password' placeholder="Password" autocomplete=true required)
+            button.btn.btn-submit(type='submit') Submit
+          div.register-forget.opacity
+            a(href='/auth/sign-up') Register
