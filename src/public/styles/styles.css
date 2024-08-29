@@ -1,6 +1,9 @@
 /* Add a black background color to the top navigation */
+.vsc-initialized{
+ padding:0;
+}
 .topnav {
-  background-color: #0f3460;
+  background-color: #3b82f6;
   overflow: hidden;
   opacity:0.6;
 }
@@ -8,7 +11,7 @@
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: #fff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;

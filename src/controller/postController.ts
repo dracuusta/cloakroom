@@ -11,11 +11,9 @@ export const get_post=(_req:Request,res:Response):void=>{
 
 export const post_post=[
  body("post_title")
- .trim()
- .escape(),
+ .trim(),
  body("post_content")
- .trim()
- .escape(),
+ .trim(),
  expressAsyncHandler(async(req:Request,res:Response,_next:NextFunction)=>{
   const errors=validationResult(req);
   if(!errors.isEmpty()){

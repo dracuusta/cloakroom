@@ -16,7 +16,11 @@ const PostSchema=new Schema<IPost>({
     type:Date,
     default:Date.now(),
     required:true
-  }
+  },
+ user:{
+  ref:'User',
+  type:Schema.Types.ObjectId
+ }
 })
 
 const Post=model<IPost>("Post",PostSchema)

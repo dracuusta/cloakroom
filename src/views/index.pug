@@ -1,8 +1,10 @@
 extends layout
+
 block content
   link(rel='stylesheet' href='../styles/index.css')
   if posts.length
-   each post in posts
-    h3 #{post.title}
-    p #{post.message}
-    p #{post.posted_at}
+    each post in posts
+      .post
+        h3.post-title #{post.title}
+        p.post-message #{post.message}
+        p.post-date #{post.posted_at}
