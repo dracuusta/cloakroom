@@ -1,0 +1,7 @@
+extends layout
+block content
+  link(rel='stylesheet' href='../styles/post.css')
+  form.form-controller(method='POST')
+   input.post-title(type='text' placeholder='Title' name='post_title')
+   textarea.post_content(type='textarea' placeholder='What is happening' name='post_content' rows="10" cols="70")
+   button.btn.btn-submit(type='submit') Submit

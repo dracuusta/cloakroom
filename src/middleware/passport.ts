@@ -64,8 +64,6 @@ export function initPassport(app:Express){
 
 
 export function isAuthenticated(req:Request,res:Response,next:NextFunction):Response|void{
-  console.log(req)
-  console.log(req.user)
   if(req.user)
     return next()
   else

@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import userRouter from './routes/user'
+import postRouter from './routes/post'
 import authRouter from './routes/auth'
 import mongoose from 'mongoose'
 import { initPassport } from './middleware/passport'
@@ -41,6 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/',userRouter)
+app.use('/',postRouter)
 app.use('/auth',authRouter)
 
 
