@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
 import {get_membership,get_login, get_signup,post_signup,post_get_membership} from "../controller/authController"
 import passport from 'passport'
+import { isAuthenticatedForLogin } from "../middleware/passport";
 
 
 
@@ -15,7 +16,7 @@ router.post('/sign-up',post_signup)
 router.get('/:id/get_membership',get_membership)
 router.post('/:id/get_membership',post_get_membership)
 
-router.get('/login',get_login)
+router.get('/login',isAuthenticatedForLogin,get_login)
 router.post('/login',passport.authenticate('local'),async(_req:Request,res:Response)=>{
   res.redirect('/')
 });

@@ -73,3 +73,10 @@ export function isAuthenticated(req:Request,res:Response,next:NextFunction):Resp
 
 
 
+export function isAuthenticatedForLogin(req:Request,res:Response,next:NextFunction):Response|void{
+  if(req.user)
+  res.redirect("/")
+  else
+  next()
+}
+

@@ -1,6 +1,5 @@
 import {Router} from 'express'
 import {index} from '../controller/userController'
-import { isAuthenticated } from '../middleware/passport';
 
 
 
@@ -12,7 +11,7 @@ import { isAuthenticated } from '../middleware/passport';
 
 const router=Router();
 
-router.get('/',isAuthenticated,index);
+router.get('/',index);
 
 
 export default router;

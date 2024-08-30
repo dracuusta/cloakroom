@@ -21,7 +21,7 @@ export const post_post=[
     errors:errors.array()
    })
   }
-  const post=new Post({title:req.body.post_title,message:req.body.post_content});
+  let post=new Post({title:req.body.post_title,message:req.body.post_content,user:req.user?.id});
 
   post.save();
   res.redirect('/')

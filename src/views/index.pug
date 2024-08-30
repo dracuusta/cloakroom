@@ -5,6 +5,9 @@ block content
   if posts.length
     each post in posts
       .post
-        h3.post-title #{post.title}
-        p.post-message #{post.message}
-        p.post-date #{post.posted_at}
+       h3.post-title=post.title
+        p.post-message=post.message
+        p.post-date=post.posted_at
+        if reqUser
+         if post.user
+          p.post-author=post.user.first_name
