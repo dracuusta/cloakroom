@@ -58,7 +58,7 @@ export const get_membership = (_req: Request, res: Response): void => {
 
 export const post_get_membership = [
   body('secret_code').custom((value) => {
-    if (value !== 'abra') {
+    if (value !== 'cloak') {
       throw new Error('Secret Code does not match');
     }
     return true;
