@@ -1,65 +1,68 @@
 :root {
- --background: #0f172a;
- --text-primary: #e2e8f0;
- --text-secondary: #94a3b8;
- --accent: #fff;
- --accent-hover: #fff;
+  --background: #0f172a;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent: #000;
+  --accent-hover: #000;
+}
+@font-face {
+  font-family: blogFont;
+  src: url("../fonts/Merriweather/Merriweather-Regular.ttf");
 }
 
 body {
- font-family: Arial, Helvetica, sans-serif;
- background-color: var(--background);
- color: var(--text-primary);
- line-height: 1.6;
- margin: 0;
- padding: 20px;
+  font-family: blogFont;
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
 }
 
 .post {
- background-color: rgba(255, 255, 255, 0.05);
- border-radius: 8px;
- padding: 20px;
- margin-bottom: 20px;
- box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: blogFont;
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid black;
 }
 
 .post-title {
- color: var(--accent);
- font-size: 1.5rem;
- margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .post-message {
- margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .post-date {
- color: var(--text-secondary);
- font-size: 0.9rem;
- font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 a {
- color: var(--accent);
- text-decoration: none;
- transition: color 0.3s ease;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
- color: var(--accent-hover);
- text-decoration: underline;
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
- body {
-  padding: 10px;
- }
+  body {
+    padding: 10px;
+  }
 
- .post {
-  padding: 15px;
- }
+  .post {
+    padding: 15px;
+  }
 
- .post-title {
-  font-size: 1.3rem;
- }
+  .post-title {
+    font-size: 1.3rem;
+  }
 }
