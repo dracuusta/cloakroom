@@ -12,6 +12,7 @@ import session from 'express-session'
 const app=express()
 
 dotenv.config({path:__dirname+'/.env'})
+
 const PORT=3000;
 
 app.set('view engine','pug')
