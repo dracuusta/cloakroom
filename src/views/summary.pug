@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    title Post Summarization
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/stylesheets/style.css")
+  body
+    h1 Summary of Posts
+    if summary
+      p Summary:
+      blockquote
+        | #{summary}
+    else
+      p No summary available.
+
+    h2 All Posts
+    ul
+      each post in posts
+        li
+          h3 #{post.title}
+          p #{post.message}
+          p Posted by: #{post.user || 'Unknown'}
+          p Posted at: #{new Date(post.posted_at).toLocaleString()}
+
+    a(href="/") Back to Home
