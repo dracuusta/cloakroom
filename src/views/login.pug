@@ -9,9 +9,9 @@ block content
           h1.opacity Login
           form(method='POST')
             div.form-group
-              input(type='text' placeholder="Username" name='username' autocomplete=true required)
+              input(type='text' placeholder="Username" name='username' autocomplete=true required value="Guest")
             div.form-group
-              input(type='password' name='password' placeholder="Password" autocomplete=true required)
+              input(type='password' name='password' placeholder="Password" autocomplete=true required value="GuestPassword")
             button.btn.btn-submit(type='submit') Submit
           div.register-forget.opacity
             a(href='/auth/sign-up') Register

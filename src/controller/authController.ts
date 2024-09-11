@@ -92,3 +92,9 @@ export const get_login = (_req: Request, res: Response): void => {
   });
 };
 
+export const post_logout= (req: Request, res: Response,next:NextFunction): void => {
+req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+};
