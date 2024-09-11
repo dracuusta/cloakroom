@@ -17,10 +17,15 @@ export const summarize_posts = async () => {
 
 
   // Call the Hugging Face summarization model
-  const summary = await hf.summarization({
+  //const summary = await hf.summarization({
+   // model: 'facebook/bart-large-cnn',  // Free summarization model
+    //inputs: content
+  //});
+    const summary2 = await hf.summarization({
     model: 'facebook/bart-large-cnn',  // Free summarization model
     inputs: content
   });
 
-  return summary;
+
+  return summary2;
 };
