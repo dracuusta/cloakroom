@@ -1,5 +1,5 @@
 :root {
-  --background: #0f172a;
+  --background: #fff;
   --text-primary: #e2e8f0;
   --text-secondary: #94a3b8;
   --accent: #000;
@@ -17,6 +17,10 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 20px;
+}
+.summary-title{
+  font-family:sans-serif;
+  color:#000;
 }
 
 .post {

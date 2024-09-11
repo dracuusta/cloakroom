@@ -21,7 +21,7 @@ export const post_post=[
     errors:errors.array()
    })
   }
-  let post=new Post({title:req.body.post_title,message:req.body.post_content,user:req.user?.id,posted_at:Date.now});
+  let post=new Post({title:req.body.post_title,message:req.body.post_content,user:req.user?.id});
 
   post.save();
   console.log(post);

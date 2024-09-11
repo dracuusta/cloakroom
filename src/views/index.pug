@@ -2,6 +2,9 @@ extends layout
 
 block content
   link(rel='stylesheet' href='../styles/index.css')
+  h1.summary-title
+    h2.summary-title AI Summary
+    p.summary-title=summary_text
   if posts.length
     each post in posts
       .post
