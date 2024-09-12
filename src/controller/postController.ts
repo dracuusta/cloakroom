@@ -24,6 +24,7 @@ export const post_post=[
   let post=new Post({title:req.body.post_title,message:req.body.post_content,user:req.user?.id});
 
   post.save();
+  console.log(post);
   res.redirect('/')
  
  })
