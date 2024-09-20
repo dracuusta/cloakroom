@@ -2,7 +2,6 @@ import { NextFunction, Request, Response} from "express";
 import expressAsyncHandler from "express-async-handler";
 import { body, validationResult } from "express-validator";
 import Post from "../models/post";
-import { summarize_posts } from "src/service/summaryService";
 
 export const get_post=(_req:Request,res:Response):void=>{
     res.render("create_post",{
@@ -23,7 +22,6 @@ export const post_post=[
    })
   }
   let post=new Post({title:req.body.post_title,message:req.body.post_content,user:req.user?.id});
-  newSummary=new 
    
 
   post.save();
