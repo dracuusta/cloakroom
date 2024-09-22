@@ -79,4 +79,3 @@ export function isAuthenticatedForLogin(req:Request,res:Response,next:NextFuncti
   else
   next()
 }
-
